@@ -59,7 +59,7 @@ const cssRegex = /\.(css|less)$/;
 17. @ 装饰器一直报错
 vscode setting  `"javascript.implicitProjectConfig.experimentalDecorators": true` 无效
 tsconfig.json `experimentalDecorators": true,` 也无效
-最后 在代码里加`@ts-ignore`生效... 浪费时间，(ˉ▽ˉ；)...
+最后 在代码里加`//@ts-ignore`生效... 浪费时间，(ˉ▽ˉ；)...
 ```
 //@ts-ignore
 @connect(
