@@ -1,44 +1,54 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 操作步骤
 
-In the project directory, you can run:
+本项目构建过程
 
-### `npm start`
+### 项目初始化
+1. yarn create react-app blog-admin --typescript
+2. cd blog-admin
+3. yarn eject
+4. yarn add antd babel-plugin-import less less-loader react-loadable
+5. webpack.config.js 
+```
+const cssRegex = /\.(css|less)$/; 
+```
+6. webpack.config.js getStyleLoaders 函数 给函数的 loaders 数组增加一个元素 让其调用less-loader解析less
+```
+{
+　　loader:require.resolve('less-loader'),
+　　options:{
+　　　　javascriptEnabled: true    //允许通过js调用antd组件
+　　}
+}
+```
+7. module.exports 中     找到   resolve  属性  在设置他的 alias 对象：
+```
+　'@': paths.appSrc,     //通过 @  定位到src   paths 对象里有每个文件的地址引用   可修改
+```
+8. 安装redux yarn add redux react-redux redux-thunk react-router-dom
+9. 安装装饰器依赖 yarn add babel-plugin-transform-decorators-legacy --save-dev
+10. tsconfig.json  "compilerOptions"对象中 添加 "experimentalDecorators": true
+11. 根目录下 新建.babelrc文件,注意package.json中与此文件不要有重复声明
+```
+{
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ],
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }]
+  ]
+}
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
