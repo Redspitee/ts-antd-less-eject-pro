@@ -50,5 +50,12 @@ const cssRegex = /\.(css|less)$/;
 }
 ```
 
+12. 使用react-router-dom 报错 yarn add @types/react-router-dom
+13. yarn add @babel/plugin-transform-react-jsx
+14. yarn add @babel/plugin-transform-react-jsx-source
+15. yarn add @babel/plugin-transform-react-jsx-self
+16. yarn add @babel-plugin-transform-decorators-legacy
+
+17. 搞死我了，@装饰器一直报错，
 
 
