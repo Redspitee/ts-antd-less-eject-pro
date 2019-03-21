@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'antd';
 import logo from './logo.svg';
 import './App.less';
 
@@ -22,6 +23,7 @@ class App extends Component<Props, State> {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <Button>antd button</Button>
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
