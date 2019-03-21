@@ -571,6 +571,7 @@ module.exports = function (webpackEnv) {
           new RegExp('/[^/]+\\.[^/]+$'),
         ],
       }),
+      
       // TypeScript type checking
       useTypeScript &&
       new ForkTsCheckerWebpackPlugin({
